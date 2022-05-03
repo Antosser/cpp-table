@@ -80,3 +80,5 @@ t.toHTML();
 // Clear the table
 t.clear();
 ```
+
+## Huge thanks to `GitHub Copilot` for writing pretty much all of the code!

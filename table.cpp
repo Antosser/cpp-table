@@ -33,7 +33,7 @@ class Table
         return m_Data.at(std::get<0>(indexes)).at(std::get<1>(indexes));
     }
 
-    void addRow(std::vector<std::string> row)
+    void addRow(const std::vector<std::string>& row)
     {
         m_Data.push_back(row);
     }

@@ -18,14 +18,19 @@ class Table
 
     }
 
-    std::vector<std::string> operator[](int index)
+    std::vector<std::string>& operator[](int index)
     {
         return m_Data[index];
     }
 
-    std::string operator[](std::tuple<int, int> indexes)
+    std::string& operator[](std::tuple<int, int> indexes)
     {
         return m_Data[std::get<0>(indexes)][std::get<1>(indexes)];
+    }
+
+    std::string at(std::tuple<int, int> indexes) const
+    {
+        return m_Data.at(std::get<0>(indexes)).at(std::get<1>(indexes));
     }
 
     void addRow(std::vector<std::string> row)

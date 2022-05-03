@@ -22,7 +22,10 @@ class Table
         return m_Data[index];
     }
 
-    void addRow(std::vector<std::string> row) { m_Data.push_back(row); }
+    void addRow(std::vector<std::string> row)
+    {
+        m_Data.push_back(row);
+    }
 
     bool isValid() {
         if (m_Data.size() == 0)

@@ -163,12 +163,3 @@ class Table
         file.close();
     }
 };
-
-int main()
-{
-    Table t;
-    t.addRow({"a", "b", "c"});
-    t.addRow({"d", "e", "f"});
-    t.addRow({"g", "h", "i"});
-    t.print_ASCII();
-}

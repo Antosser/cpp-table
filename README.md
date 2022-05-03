@@ -1,12 +1,15 @@
 # C++ Table Library
+
 An advanced library for managing and storing string tables in C++
 
 ## Installation
+
 1. Download the `table.cpp` file
 1. Put it in the folder with your project
 1. Include it using `#include "table.cpp"`
 
 ## Usage
+
 ```cpp
 // Create a table like this
 Table t;

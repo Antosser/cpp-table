@@ -12,6 +12,14 @@ class Table
     private:
     std::vector<std::vector<std::string>> m_Data;
 
+    inline void printErrorIfInvalid() const {
+        if (!isValid())
+        {
+            std::cout << "Table is invalid" << std::endl;
+            throw std::exception("Table is invalid");
+        }
+    }
+
     public:
     Table(): m_Data(std::vector<std::vector<std::string>>())
     {
@@ -49,6 +57,8 @@ class Table
     }
 
     void print_ASCII(bool eqalSize = false) {
+        printErrorIfInvalid();
+
         std::vector<int> widths;
         int maxWidth = 0;
 
@@ -98,6 +108,7 @@ class Table
         std::cout << '+' << std::endl;
     }
     std::string toCSV() const {
+        printErrorIfInvalid();
         std::string csv = "";
         for (int i = 0; i < m_Data.size(); i++) {
             for (int j = 0; j < m_Data[i].size(); j++) {
@@ -111,6 +122,7 @@ class Table
         return csv;
     }
     std::string toHTML() const {
+        printErrorIfInvalid();
         std::string html = "<table>\n";
         for (int i = 0; i < m_Data.size(); i++) {
             html += "<tr>\n";
@@ -123,6 +135,7 @@ class Table
         return html;
     }
     std::string toJSON() const {
+        printErrorIfInvalid();
         std::string json = "{\n";
         for (int i = 0; i < m_Data.size(); i++) {
             json += "\"" + m_Data[i][0] + "\": ";
@@ -134,12 +147,14 @@ class Table
         return json;
     }
     void saveCSV(std::string path) const {
+        printErrorIfInvalid();
         std::ofstream file;
         file.open(path);
         file << toCSV();
         file.close();
     }
     void loadCSV(std::string path) {
+        printErrorIfInvalid();
         std::ifstream file(path);
         std::string line;
         while (std::getline(file, line)) {

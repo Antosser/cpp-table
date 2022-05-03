@@ -17,7 +17,10 @@ class Table
 
     }
 
-    std::vector<std::string> operator[](int index) { return m_Data[index]; }
+    std::vector<std::string> operator[](int index)
+    {
+        return m_Data[index];
+    }
 
     void addRow(std::vector<std::string> row) { m_Data.push_back(row); }
 
